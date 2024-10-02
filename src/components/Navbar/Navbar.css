@@ -1,0 +1,51 @@
+.header_input {
+    width: 20em;
+    box-sizing: content-box;
+    transition: width .3s ease-in-out;
+}
+
+.header_input:focus {
+    outline: none;
+    box-shadow: 0 0 0px 4px #988ffb; 
+    width: 30em;    
+    max-width: 1000em;
+    margin-right: 5px;
+}
+
+.header_nav {
+    box-shadow: 2px 0px 10px gray;
+}
+
+.imageUser {
+    cursor: pointer;
+
+    &:active{
+        border:1px solid rgb(164, 55, 163);
+    }
+}
+.menu{
+    visibility: none;
+    opacity: 0;
+    transition:opacity .2s ease-out, visibility 0s .2s;
+}
+.showMenu{
+    visibility: visible;
+    opacity:1;
+    transition: opacity .2s ease-out;
+}
+
+.list-item{
+    background: none;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgb(222, 222, 222);
+    list-style: none;
+    &:hover{
+        border:1px solid purple;
+    }
+}
+
+.list-item-logout{
+    background-color: tomato;
+    cursor: pointer;
+    list-style: none;
+}

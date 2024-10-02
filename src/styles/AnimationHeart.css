@@ -1,0 +1,25 @@
+.heart:active {
+    animation: heart .2s ease-in;
+}
+
+@keyframes heart {
+    0% {
+        scale: 0;
+    }
+
+    35% {
+        scale: 0.5;
+    }
+
+    45%,
+    75% {
+        scale: 0.8;
+    }
+
+    85%{
+        scale: 1;
+    }
+    100% {
+        scale: 1.5;
+    }
+}
