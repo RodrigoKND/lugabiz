@@ -45,7 +45,7 @@
 }
 
 .list-item-logout{
-    background-color: tomato;
+    background-color: rgb(248, 84, 55);
     cursor: pointer;
     list-style: none;
 }
