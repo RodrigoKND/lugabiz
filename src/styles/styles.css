@@ -1,0 +1,31 @@
+body {
+    margin: 0;
+    height: 100vh;
+}
+
+.button-container {
+    position: fixed; /* Fijar la posición */
+    bottom: 20px; /* Espacio desde el fondo */
+    right: 20px; /* Espacio desde la derecha */
+}
+
+.circular-button {
+    width: 60px;
+    height: 60px;
+    border: none;
+    border-radius: 50%;
+    background-color: #007BFF; /* Color de fondo */
+    color: white; /* Color de la cruz */
+    font-size: 30px; /* Tamaño de la cruz */
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+    z-index: 1000;
+}
+
+.circular-button:hover {
+    background-color: #0056b3; /* Color al pasar el mouse */
+}
