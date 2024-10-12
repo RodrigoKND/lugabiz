@@ -1,6 +1,11 @@
-# React + Vite
+# Inicializar Proyecto
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
+1. Primer Paso
+npm install
+2. Segundo Paso
+npm run dev
+---
 
 Currently, two official plugins are available:
 
