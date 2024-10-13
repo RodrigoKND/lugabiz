@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Card from "../components/Card";
 import Navigation from "../components/Navigation";
 import Iheart from "../Icons/Iheart";
+import Heart from "../components/Heart";
 import Ilocation from "../Icons/Ilocation";
 import Icalendar from "../Icons/Icalendar";
 import '../styles/UserStyles.css';
@@ -45,11 +46,11 @@ function ProfileUser() {
                 height="100"
                 className="rounded-pill object-fit-cover imageUser z-2"
             />
-            <div className="text-center">
+            <div className="text-center"/>
             <h4 className="mt-3">Midudev</h4>
                 <div className="d-flex justify-content-evenly gap-3">
                 <span className="d-flex flex-column align-items-center px-3 py-2">
-                 <Iheart />
+                 <Heart />
                  <small>4.9 me gusta</small>
                   </span>
                  <span className="d-flex flex-column align-items-center px-3 py-2">
@@ -61,7 +62,7 @@ function ProfileUser() {
                   <small>Se unió en 2024</small>
                  </span>
                 </div>
-                <p>
+                <p className="mt-4">
                     ¡Hola! Soy Midu, un viajero apasionado y buscador de
                     experiencias. Me encanta explorar nuevas culturas, probar
                     cocinas exóticas y superar mis límites con aventuras
@@ -70,13 +71,12 @@ function ProfileUser() {
             </header>
 
             <div className="bg-body-secondary">
-                <Navigation
-                    classStyleContainer={"justify-content-center p-3"}
-                    classStyle={"bg-tomato text-white rounded-pill"}
-                    items={["Publicaciones", "Lugares favoritos", "Logros", "Reseñas"]}
+             <Navigation
+            classStyleContainer={"justify-content-center p-3 custom-background"}
+            classStyle={"bg-tomato text-white rounded-pill"}
+            items={["Publicaciones", "Lugares favoritos", "Logros", "Reseñas"]}
                 />
             </div>
-
             <div className="d-flex flex-wrap justify-content-center gap-4 py-4">
                 {/* Mostrar las tarjetas creadas */}
                 {cards.map((card, index) => (
@@ -91,43 +91,42 @@ function ProfileUser() {
                 </button>
             </div>
 
-            {/* Formulario de Publicación */}
             {isFormVisible && (
-                <div className="modal">
-                    <form onSubmit={handleSubmit} className="form">
-                        <h2>Crear Publicación</h2>
-                        <div>
-                            <label htmlFor="placeName">Nombre del Lugar:</label>
-                            <input
-                                type="text"
-                                id="placeName"
-                                value={placeName}
-                                onChange={(e) => setPlaceName(e.target.value)}
-                                required
-                            />
-                        </div>
-                        <div>
-                            <label htmlFor="description">Descripción:</label>
-                            <textarea
-                                id="description"
-                                value={description}
-                                onChange={(e) => setDescription(e.target.value)}
-                                required
-                            />
-                        </div>
-                        <div>
-                            <label htmlFor="image">Cargar Imagen:</label>
-                            <input
-                                type="file"
-                                id="image"
-                                onChange={(e) => setImage(e.target.files[0])}
-                            />
-                        </div>
-                        <button type="submit">Enviar</button>
-                        <button type="button" onClick={() => setFormVisible(false)}>Cancelar</button>
-                    </form>
-                </div>
-            )}
+    <div className="modal">
+        <form onSubmit={handleSubmit} className="form">
+            <h2>Crear Publicación</h2>
+            <div>
+                <label htmlFor="placeName">Nombre del Lugar:</label>
+                <input
+                    type="text"
+                    id="placeName"
+                    value={placeName}
+                    onChange={(e) => setPlaceName(e.target.value)}
+                    required
+                />
+            </div>
+            <div>
+                <label htmlFor="description">Descripción:</label>
+                <textarea
+                    id="description"
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
+                    required
+                />
+            </div>
+            <div>
+                <label htmlFor="image">Cargar Imagen:</label>
+                <input
+                    type="file"
+                    id="image"
+                    onChange={(e) => setImage(e.target.files[0])}
+                />
+            </div>
+            <button type="submit">Enviar</button>
+            <button type="button" onClick={() => setFormVisible(false)}>Cancelar</button>
+        </form>
+    </div>
+)}
         </section>
     );
 }

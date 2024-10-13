@@ -1,7 +1,8 @@
 html,body {
-    font-family: system-ui, sans-serif;
+    font-family: "Space Grotesk", serif;
     color-scheme: dark light;
 }
+
 
 main {
     background: radial-gradient(at left center, rgba(141, 135, 250, 0.882), rgba(255, 255, 255, 0) 25%), 

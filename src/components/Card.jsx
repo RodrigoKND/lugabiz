@@ -31,7 +31,7 @@ function Card({ title, body, href }) {
                 <p className="card-text">{body}</p>
             </div>
             <div className="p-2">
-                <Iheart />
+                <Heart />
                 <span>{parseInt(likes) > 1 ? `Les gusta a ${likes} personas` : `Le gusta a ${likes} persona`}</span>
             </div>
         </article>

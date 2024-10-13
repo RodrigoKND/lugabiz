@@ -2,7 +2,7 @@
     color: #6E51A9;
 }
 .bg-tomato{
-    background-color:tomato;
+    background-color:rgb(252, 100, 100);
 }
 .bg-purple{
     background-color: #AC78F5;
@@ -13,7 +13,7 @@
     cursor: pointer;
 }
 .border-tomato {
-    border: 1px solid tomato;
+    border: 1px solid rgb(252, 100, 100);
 }
 .bg-gray-light{
     background-color: #F3F4F6;
@@ -21,4 +21,51 @@
 
 .cursor-pointer{
     cursor: pointer;
+}
+.custom-background {
+    background-color: #ffffff; 
+}
+
+
+.form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    margin: 0 auto;
+}
+
+.form input[type="text"],
+.form textarea {
+    width: 100%; 
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.form button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: #dea5fd;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.form button[type="button"] {
+    background-color: #ea5564;
+    color: white;
+}
+
+.form button:hover {
+    opacity: 0.9;
+}
+
+.form input[type="file"] {
+    margin: 10px 0;
 }
