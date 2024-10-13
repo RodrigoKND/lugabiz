@@ -1,8 +1,18 @@
+<<<<<<< HEAD
+# Inicializar Proyecto
+
+---
+1. Primer Paso
+npm install
+2. Segundo Paso
+npm run dev
+=======
 # Lugabiz
 
 Para empezar necesitas ejecutar el comando
 ---
 npm install
+>>>>>>> 301e547c3a58c8904b66639a40d07779c7947c56
 ---
 
 Currently, two official plugins are available:

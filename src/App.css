@@ -12,3 +12,13 @@
     border-radius: 20px;
     cursor: pointer;
 }
+.border-tomato {
+    border: 1px solid tomato;
+}
+.bg-gray-light{
+    background-color: #F3F4F6;
+}
+
+.cursor-pointer{
+    cursor: pointer;
+}
