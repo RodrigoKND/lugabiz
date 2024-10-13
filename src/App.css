@@ -28,26 +28,36 @@
 
 
 .form {
-    background-color: white;
+    overflow: auto;
+    margin-top: 10px;
     padding: 20px;
+    z-index: 10;
+    position: relative;
+    background-color: white;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 400px;
+    width: 80%; 
+    max-width: 550px; 
+    height: 80%; 
     margin: 0 auto;
 }
 
+
+
+/* Ajusta los campos de texto y áreas de texto */
 .form input[type="text"],
 .form textarea {
     width: 100%; 
-    padding: 10px;
-    margin: 10px 0;
+    padding: 12px;
+    margin: 3px 0;
     border-radius: 5px;
     border: 1px solid #ccc;
     font-size: 16px;
 }
 
+/* Botones */
 .form button {
-    padding: 10px 20px;
+    padding: 12px 24px;
     border-radius: 5px;
     border: none;
     background-color: #dea5fd;
@@ -57,15 +67,63 @@
     margin-right: 10px;
 }
 
+/* Botón alternativo */
 .form button[type="button"] {
     background-color: #ea5564;
     color: white;
 }
 
+/* Hover en botones */
 .form button:hover {
     opacity: 0.9;
 }
 
+/* Campo de archivos */
 .form input[type="file"] {
-    margin: 10px 0;
+    margin: 15px 0;
+}
+.time-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 100px; /* Espacio entre los elementos */
+    margin: 20px 0; /* Margen entre el contenedor de tiempos y otros elementos */
+}
+/*hora de abertura y hora de cierre*/
+.time-container div {
+    flex: 1; 
+}
+
+.time-container label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.time-container input[type="time"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+/*seleccion multiple de los grupos*/
+.social-group {
+    margin-top: 20px;
+}
+
+.social-group label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* Espacio entre cada línea de checkbox */
+    font-size: 16px; /* Tamaño de la fuente del texto de los checkboxes */
+}
+
+.social-group input[type="checkbox"] {
+    margin-right: 10px; /* Espacio entre el checkbox y el texto */
+    width: 18px;
+    height: 15px; 
+}
+
+.social-group > label {
+    font-weight: bold;
+    margin-bottom: 15px; 
 }

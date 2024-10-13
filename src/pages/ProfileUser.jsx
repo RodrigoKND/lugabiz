@@ -11,8 +11,20 @@ function ProfileUser() {
     const [isFormVisible, setFormVisible] = useState(false);
     const [placeName, setPlaceName] = useState("");
     const [description, setDescription] = useState("");
+    const [location, setlocation] = useState("");
+    const [type, setType] = useState("");
+    const [openingHours, setOpeningHours] = useState("");
+    const [closingHours, setClosingHours] = useState("");
     const [image, setImage] = useState(null);
     const [cards, setCards] = useState([]); // Estado para las tarjetas
+    const [selectedGroups, setSelectedGroups] = useState([]);
+    const handleGroupSelection = (value) => {//seleccion de grupos sociales
+    if (selectedGroups.includes(value)) {
+        setSelectedGroups(selectedGroups.filter((group) => group !== value));
+    } else {
+        setSelectedGroups([...selectedGroups, value]);
+    }
+};
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -20,7 +32,7 @@ function ProfileUser() {
         // Crear un nuevo objeto de tarjeta
         const newCard = {
             title: placeName,
-            body: description,
+            body: description, 
             image: image ? URL.createObjectURL(image) : null // Crear URL temporal para la imagen
         };
 
@@ -45,7 +57,7 @@ function ProfileUser() {
                 width="100"
                 height="100"
                 className="rounded-pill object-fit-cover imageUser z-2"
-            />
+            /> 
             <div className="text-center"/>
             <h4 className="mt-3">Midudev</h4>
                 <div className="d-flex justify-content-evenly gap-3">
@@ -72,7 +84,7 @@ function ProfileUser() {
 
             <div className="bg-body-secondary">
              <Navigation
-            classStyleContainer={"justify-content-center p-3 custom-background"}
+            classStyleContainer={"justify-content-center p-5 custom-background"}
             classStyle={"bg-tomato text-white rounded-pill"}
             items={["Publicaciones", "Lugares favoritos", "Logros", "Reseñas"]}
                 />
@@ -114,6 +126,107 @@ function ProfileUser() {
                     required
                 />
             </div>
+            <div> 
+                <label htmlFor="location">Direccion:</label>
+                <textarea
+                    id="text"
+                    value={location}
+                    onChange={(e) => setlocation(e.target.value)}
+                    required
+                />
+            </div>
+            
+            <div>
+                <label htmlFor="type">Tipo de Lugar:</label>
+                <select
+                    id="type"
+                    value={type}
+                    onChange={(e) => setType(e.target.value)}
+                    required
+                >
+                    <option value="">Seleccionar tipo</option>
+                    <option value="restaurante">Restaurante</option>
+                    <option value="bar">Bar</option>
+                    <option value="tienda">Tienda</option>
+                    <option value="parque">Parque</option>
+                    <option value="parque">Cafeteria</option>
+                
+                </select>
+            </div>
+            <div className="social-group">
+            <div>
+    <label>Grupos Sociales:</label>
+    <div>
+        <label>
+            <input
+                type="checkbox"
+                value="familia"
+                checked={selectedGroups.includes("familia")}
+                onChange={(e) => handleGroupSelection(e.target.value)}
+            />
+            Planes en familia
+        </label>
+    </div>
+    <div>
+        <label>
+            <input
+                type="checkbox"
+                value="pareja"
+                checked={selectedGroups.includes("pareja")}
+                onChange={(e) => handleGroupSelection(e.target.value)}
+            />
+            En pareja
+        </label>
+    </div>
+    <div>
+        <label>
+            <input
+                type="checkbox"
+                value="amigos"
+                checked={selectedGroups.includes("amigos")}
+                onChange={(e) => handleGroupSelection(e.target.value)}
+            />
+            Amigos
+        </label>
+    </div>
+    <div>
+        <label>
+            <input
+                type="checkbox"
+                value="petfrendly"
+                checked={selectedGroups.includes("petfrendly")}
+                onChange={(e) => handleGroupSelection(e.target.value)}
+            />
+            Con mascota
+        </label>
+    </div>
+
+</div>
+</div>
+
+            <div className="time-container">
+    <div>
+        <label htmlFor="openingHours">Horario de Apertura:</label>
+        <input
+            type="time"
+            id="openingHours"
+            value={openingHours}
+            onChange={(e) => setOpeningHours(e.target.value)}
+            required
+        />
+    </div>
+
+    <div>
+        <label htmlFor="closingHours">Horario de Cierre:</label>
+        <input
+            type="time"
+            id="closingHours"
+            value={closingHours}
+            onChange={(e) => setClosingHours(e.target.value)}
+            required
+        />
+    </div>
+</div>
             <div>
                 <label htmlFor="image">Cargar Imagen:</label>
                 <input
