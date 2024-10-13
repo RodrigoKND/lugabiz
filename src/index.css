@@ -1,6 +1,10 @@
 html,body {
     font-family: system-ui, sans-serif;
-    background: #f0eded;
     color-scheme: dark light;
 }
 
+main {
+    background: radial-gradient(at left center, rgba(141, 135, 250, 0.882), rgba(255, 255, 255, 0) 25%), 
+                radial-gradient(at right center, rgba(169, 102, 237, 0.7), rgba(255, 255, 255, 0) 25%);
+    color: #4a257e; 
+}

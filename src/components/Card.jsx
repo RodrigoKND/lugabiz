@@ -1,5 +1,6 @@
 import { useEffect, useState }  from "react"
 import Iheart from "../Icons/Iheart"
+import Heart from "../components/Heart"
 
 function Card({title, body, href}) {
     const [text, setText] = useState()
@@ -29,7 +30,7 @@ function Card({title, body, href}) {
                 </p>
             </div>
             <div className="p-2">
-                <Iheart/>
+                <Heart/>
                 <span>{parseInt(text) > 1 ? `Les gusta a ${text} personas` : `Le gusta a ${text} persona`}</span>
             </div>
         </article>

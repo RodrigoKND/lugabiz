@@ -2,8 +2,8 @@ function Isearch() {
     return (
         <svg
             className="icon icon-tabler icon-tabler-search"
-            width="24"
-            height="24"
+            width="35"
+            height="35"
             viewBox="0 0 24 24"
             strokeWidth="1.5"
             stroke="#ff2825"
