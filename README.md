@@ -1,8 +1,13 @@
-# React + Vite
+# Inicializar Proyecto
+=======
+# Lugabiz
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+1. Paso
 
-Currently, two official plugins are available:
+Ejecutar el siguiente comando en la terminal:
+npm install
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+2. Paso
+Para ejecutar el proyecto, ejecutar el siguiente comando en la terminal:
+npm run dev
+

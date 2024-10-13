@@ -1,10 +1,13 @@
 //Solo se aceptan cuatro valores para role
+
+import { Link } from "react-router-dom";
+
 // user, admin, singin y logout
 const optionsMenu = [
     {
         role: "user",
         content: "perfil",
-        path: "/#/profile"
+        path: "/profile"
     },
     {
         role: "user",
@@ -26,9 +29,9 @@ function UserMenuOptions() {
                     <li key={index} 
                     className={`p-2 text-capitalize 
                     ${item.role !== "logout" ? "list-item" : "list-item-logout text-white"}`}>
-                        <a className="nav-link" href={item.path}>
+                        <Link className="nav-link" to={item.path}>
                             {item.content}
-                        </a>
+                        </Link>
                     </li>
                 ))
             }
