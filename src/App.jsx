@@ -2,7 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import { Routes, Route, HashRouter } from "react-router-dom"
 
 import NavbarModule from "./components/Navbar/Navbar.module"
-import Home from "./pages/home"
+import Home from "./pages/Home"
 import ProfileUser from "./pages/ProfileUser"
 import Login from "./pages/Login"
 import PlaceDetail from "./components/PlaceDetail"
