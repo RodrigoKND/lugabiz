@@ -1,6 +1,7 @@
 import Navigation from "../components/Navigation"
 import Card from "../components/Card"
 function Home() {
+    
     return (
         <>
             <div className="m-4">
@@ -13,7 +14,7 @@ function Home() {
                     />
                     <div className="card_content position-absolute bottom-0">
                         <div className="p-3 text-white">
-                              <p className="bg-purple py-1 px-3 rounded-pill" style={{ width: "max-content" }}>
+                            <p className="bg-purple py-1 px-3 rounded-pill" style={{ width: "max-content" }}>
                                 Tendencia
                             </p>
                             <h3 className="card-title">Enchanted Night Market Adventure</h3>
