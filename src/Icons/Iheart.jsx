@@ -2,8 +2,8 @@ function Iheart(isFill = false) {
     return (
         <svg
             className="icon icon-tabler icon-tabler-heart heart pe-auto"
-            width="30"
-            height="30"
+            width="35"
+            height="35"
             viewBox="0 0 24 24"
             strokeWidth="1.5"
             stroke="#fd0061"

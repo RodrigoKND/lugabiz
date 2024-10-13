@@ -1,7 +1,9 @@
 body {
+    font-family: "Space Grotesk", serif;
     margin: 0;
     height: 100vh;
 }
+
 
 .button-container {
     position: fixed; /* Fijar la posición */
@@ -14,7 +16,7 @@ body {
     height: 60px;
     border: none;
     border-radius: 50%;
-    background-color: #ff6444; /* Color de fondo */
+    background-color: #ea5564; /* Color de fondo */
     color: white; /* Color de la cruz */
     font-size: 30px; /* Tamaño de la cruz */
     cursor: pointer;
@@ -27,7 +29,7 @@ body {
 }
 
 .circular-button:hover {
-    background-color: #0056b3; /* Color al pasar el mouse */
+    background-color: #ad6cdf; /* Color al pasar el mouse */
 }
 .modal {
     position: fixed;
