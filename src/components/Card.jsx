@@ -1,39 +1,40 @@
-import { useEffect, useState }  from "react"
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom"
-import Heart from "./Heart"
+import Heart from "./Heart"; // Asegúrate de que la ruta sea correcta
 
-function Card({title, body, href}) {
-    const [text, setText] = useState()
-    useEffect(()=>{
-        async function numberRandom(){
-            const num = await fetch("https://www.random.org/integers/?num=1&min=1&max=5&col=1&base=10&format=plain&rnd=new")
-            const text = await num.text()
-            setText(text)
+function Card({ title, body, href }) {
+    const [likes, setLikes] = useState();
+
+    useEffect(() => {
+        async function fetchLikes() {
+            const response = await fetch("https://www.random.org/integers/?num=1&min=1&max=5&col=1&base=10&format=plain&rnd=new");
+            const text = await response.text();
+            setLikes(text);
         }
 
-        numberRandom()
-    }, [])
+        fetchLikes();
+    }, []);
+
     return (
-        <article className="card rounded shadow-sm">
-            <Link className="nav-link" to={`place/${text}`}>
-                <img
-                    src="https://cotidiano.mx/wp-content/uploads/2022/10/PORTADA-LA-PERLA.jpg"
-                    className="card-img-top cursor-pointer object-fit-cover w-auto"
-                    style={{ "height": "12rem" }}
-                    alt="..."
-                />
-            </Link>
-            <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">
-                    Ubicacion del lugar
-                </p>
-                <Heart/>
-                <span className="ms-1">{text}</span>
+        <article className="card" style={{ width: "18rem" }}>
+            {href && (
+                <a className="nav-link" href="#">
+                    <img
+                        src={href}
+                        className="card-img-top cursor-pointer object-fit-cover"
+                        alt={title}
+                    />
+                </a>
+            )}
+            <div className="card-body text-purple">
+                <h5 className="card-title">{title}</h5>
+                <p className="card-text">{body}</p>
+            </div>
+            <div className="p-2">
+                <Iheart />
+                <span>{parseInt(likes) > 1 ? `Les gusta a ${likes} personas` : `Le gusta a ${likes} persona`}</span>
             </div>
         </article>
-
-
     );
 }
 
