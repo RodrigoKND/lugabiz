@@ -149,7 +149,7 @@ function ProfileUser() {
                     <option value="bar">Bar</option>
                     <option value="tienda">Tienda</option>
                     <option value="parque">Parque</option>
-                    <option value="parque">Cafeteria</option>
+                    <option value="cafeteria">Cafeteria</option>
                 
                 </select>
             </div>
