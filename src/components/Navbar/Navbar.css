@@ -13,9 +13,7 @@
 }
 
 .header_nav {
-    box-shadow: 2px 0px 10px gray;
     position: sticky;
-    width: 100%;
     z-index: 10;
     inset: 0;
 }

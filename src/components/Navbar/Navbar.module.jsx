@@ -5,18 +5,18 @@ import ImageProfileUser from "./User/ImageProfileUser";
 function NavbarModule() {
     const isLogging = false
     return (
-        <header className="header_nav">
+        <header className="header_nav w-auto border border-bottom-3">
             <nav className="navbar navbar-expand-lg bg-body-tertiary">
                 <div className="container-fluid p-1">
-                    <a className="navbar-brand fs-4 ms-3 text-purple fw-bold" href="#">
+                    <Link className="navbar-brand fs-4 ms-3 text-purple fw-bold" to="/">
                         Lugabiz
-                    </a>
+                    </Link>
                     <InputSearch />
                     <div className="d-flex justify-content-end">
                         {isLogging ? <ImageProfileUser />
                             :
                             <Link to="/login" 
-                            className="nav-link text-white bg-tomato p-2 rounded-3 me-3">Iniciar sesión</Link>
+                            className="nav-link text-white bg-tomato px-4 py-2 rounded-3 me-3">Iniciar sesión</Link>
                         }
                     </div>
                 </div>
