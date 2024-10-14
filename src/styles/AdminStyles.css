@@ -1,0 +1,56 @@
+.admin-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height:100vh;
+    padding: 20px;
+}
+
+.admin-header {
+    margin-bottom: 20px;
+}
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th, .table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.table th {
+    background-color: #ea5564;
+    color: white;
+    text-align: center;
+    font-weight: 900;
+    font-size: 18px;
+    padding:10px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center; 
+    margin-top: auto;
+
+.admin-button {
+    margin: 0 10px;
+    background-color: #ea5564;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.admin-button:hover {
+    opacity: 0.9; /* Efecto hover */
+}
