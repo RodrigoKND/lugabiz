@@ -7,6 +7,7 @@ import ProfileUser from "./pages/ProfileUser"
 import Login from "./pages/Login"
 import PlaceDetail from "./components/PlaceDetail"
 import NewAuthLogin from "./pages/NewAuthLogin"
+import AdminPage from "./pages/AdminPage"
 import "./App.css"
 
 function App() {
@@ -19,6 +20,8 @@ function App() {
         <Route Component={Login} path="/login" exact />
         <Route Component={NewAuthLogin} path="/auth" exact />
         <Route Component={PlaceDetail} path="/place/:id" exact />
+        <Route Component={AdminPage} path="/AdminPage" exact/>
+
       </Routes>
     </HashRouter>
   )
