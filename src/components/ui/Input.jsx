@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 function Input(props) {
     const {
         styleClass = '', 
@@ -9,11 +8,10 @@ function Input(props) {
         onChange, 
         onBlur, 
         value,
-        name=''
+        name='',
+        error
     } = props
-=======
-function Input({ styleClass = '', isBarSearch = false, type, placeholder, id, onChange, onBlur, value, error }) {
->>>>>>> 2ac8f7ba5a07b61a9eacf472f9640c0c824e3dd8
+
     return (
         <input
             className={`border rounded p-2 ${styleClass} ${isBarSearch ? "header_input" : "w-100 form-control"} ${error ? "border-danger" : ""}`}
@@ -25,7 +23,7 @@ function Input({ styleClass = '', isBarSearch = false, type, placeholder, id, on
             value={value}
             name={name}
             maxLength={50}
-            onChange={onChange}
+            onChange = {onChange}
             onBlur={onBlur}
             value={value}
         />
