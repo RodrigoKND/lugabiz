@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import Input from "../components/ui/Input"; // Asumiendo que Input usa Field
+import Input from "../components/ui/Input"; 
 import "../styles/FormsStyles.css";
 import { useNavigate } from "react-router-dom";
 
@@ -27,11 +27,7 @@ const Login = () => {
     };
 
     return (
-<<<<<<< HEAD
-        <div className="container d-flex justify-content-center my-5 h-auto align-items-center">
-=======
         <div className="container d-flex justify-content-center align-items-center" style={{ height: "100vh" }}>
->>>>>>> 2ac8f7ba5a07b61a9eacf472f9640c0c824e3dd8
             <div className="p-4 d-flex justify-content-center flex-column" style={{ width: "45%" }}>
                 <h1 className="text-pretty fw-bold">Iniciar sesión</h1>
                 <Formik
