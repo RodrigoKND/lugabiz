@@ -1,17 +1,18 @@
 import { Link } from "react-router-dom";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "yup";
-import Input from "../components/ui/Input"; 
-import "../styles/FormsStyles.css";
+import { Formik } from "formik";
+import { object, string } from "yup";
+import Input from "../components/ui/Input";
 import { useNavigate } from "react-router-dom";
+import { ErrorMessage } from "./NewAuthLogin";
+import "../styles/FormsStyles.css";
 
 const Login = () => {
-    const  navigate = useNavigate();
-    const validationSchema = Yup.object({
-        email: Yup.string()
+    const navigate = useNavigate();
+    const validationSchema = object({
+        email: string()
             .email("El correo electrónico es inválido")
             .required("Se requiere el correo electrónico"),
-        password: Yup.string()
+        password: string()
             .required("Se requiere la contraseña")
             .min(8, "La contraseña debe tener al menos 8 caracteres"),
     });
@@ -35,30 +36,35 @@ const Login = () => {
                     validationSchema={validationSchema}
                     onSubmit={handleSubmit}
                 >
-                    {({ isSubmitting }) => (
-                        <Form className="d-flex flex-column gap-3 mt-3">
+                    {({ values, errors, isSubmitting, touched, handleChange, handleBlur, handleSubmit }) => (
+                        <form className="d-flex flex-column gap-3 mt-3" onSubmit={handleSubmit}>
                             <div className="mb-2">
                                 <label htmlFor="email" className="form-label text-muted">Correo electrónico</label>
-                                <Field
-                                    as={Input}
-                                    styleClass={({ errors, touched }) => (errors.email && touched.email ? "border border-danger" : "")}
+                                <Input
                                     type="email"
                                     id="email"
                                     placeholder="example@gmail.com"
                                     name="email"
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    styleClass={touched.email && errors.email && "border border-danger"}
+                                    value={values.email}
                                 />
-                                <ErrorMessage name="email" component="p" className="text-danger" />
+                                {touched.email && errors.email && <ErrorMessage message={errors.email} />}
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="password" className="form-label text-muted">Contraseña</label>
-                                <Field
-                                    as={Input}
-                                    styleClass={({ errors, touched }) => (errors.password && touched.password ? "border border-danger" : "")}
+                                <Input
                                     type="password"
                                     id="password"
                                     name="password"
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    styleClass={errors.password && touched.password && "border border-danger"}
+                                    value={values.password}
                                 />
-                                <ErrorMessage name="password" component="p" className="text-danger" />
+                                {touched.password && errors.password && <ErrorMessage message={errors.password} />}
+
                             </div>
                             <button
                                 type="submit"
@@ -67,11 +73,11 @@ const Login = () => {
                             >
                                 Enviar
                             </button>
-                        </Form>
+                        </form>
                     )}
                 </Formik>
                 <div className="my-4 text-center">
-                    <p>¿No tienes una cuenta? <Link to="/auth" className="text-pretty">Regístrate</Link></p>
+                    <p>¿No tienes una cuenta? <Link to="/auth" className="text-pretty">Regístrarse</Link></p>
                 </div>
             </div>
         </div>

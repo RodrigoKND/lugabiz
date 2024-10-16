@@ -3,8 +3,12 @@ import Card from "../components/Card";
 import Navigation from "../components/Navigation";
 import Ilocation from "../Icons/Ilocation";
 import Icalendar from "../Icons/Icalendar";
-import '../styles/UserStyles.css';
 import Iheart from "../Icons/Iheart";
+import IcloseX from "../Icons/IcloseX";
+
+import '../styles/UserStyles.css';
+
+
 function ProfileUser() {
     const [isFormVisible, setFormVisible] = useState(false);
     const [placeName, setPlaceName] = useState("");
@@ -107,8 +111,11 @@ function ProfileUser() {
                 </div>
 
                 {isFormVisible && (
-                    <div className="modal">
-                        <form onSubmit={handleSubmit} className="form">
+                    <section className="modal">
+                        <form onSubmit={handleSubmit} className="form p-2">
+                            <header className="d-flex justify-content-end">
+                                <IcloseX onClick={() => setFormVisible(false)} />
+                            </header>
                             <h2>Crear Publicación</h2>
                             <div>
                                 <label htmlFor="placeName">Nombre del Lugar:</label>
@@ -238,10 +245,12 @@ function ProfileUser() {
                                     onChange={(e) => setImage(e.target.files[0])}
                                 />
                             </div>
-                            <button type="submit">Enviar</button>
-                            <button type="button" onClick={() => setFormVisible(false)}>Cancelar</button>
+                            <div className="d-flex justify-content-center">
+                                <button type="submit"
+                                    className="bg-tomato text-white px-5 py-2 border border-0 rounded-3">Enviar</button>
+                            </div>
                         </form>
-                    </div>
+                    </section>
                 )}
 
             </div>
