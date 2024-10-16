@@ -24,6 +24,7 @@ function Input(props) {
             name={name}
             maxLength={50}
             onChange = {onChange}
+            autoComplete="off"
             onBlur={onBlur}
             value={value}
         />

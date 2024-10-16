@@ -21,12 +21,12 @@ function NewAuthLogin() {
         city: "",
     };
     let userSchema = object().shape({
-        name: string().min(2, "Completa este campo").required("*Completa este campo"),
-        lastname: string().min(2, "Completa este campo").required("*Completa este campo"),
+        name: string().min(2, "Complete este campo").required("*Complete este campo"),
+        lastname: string().min(2, "Complete este campo").required("*Complete este campo"),
         borndate: date().required("Debe llenar su fecha de nacimiento"),
         country: string().required("Debe seleccionar su pais"),
         city: string().required("Debe seleccionar su ciudad"),
-        email: string().email("Debe ingresar un correo electrónico válido").required("Completa este campo"),
+        email: string().email("Debe ingresar un correo electrónico válido").required("Complete este campo"),
         password: string().min(8, "Debe ingresar una contraseña válida no menor a 8 caracteres").required("Este campo es requerido")
     });
 

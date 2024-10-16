@@ -1,13 +1,12 @@
-import React, { useState } from "react";
-import Card from "../components/Card";
-import Navigation from "../components/Navigation";
-import Ilocation from "../Icons/Ilocation";
-import Icalendar from "../Icons/Icalendar";
-import Iheart from "../Icons/Iheart";
-import IcloseX from "../Icons/IcloseX";
+import React, { useState } from "react"
+import Card from "../components/Card"
+import Navigation from "../components/Navigation"
+import Ilocation from "../Icons/Ilocation"
+import Icalendar from "../Icons/Icalendar"
+import Iheart from "../Icons/Iheart"
+import IcloseX from "../Icons/IcloseX"
 
-import '../styles/UserStyles.css';
-
+import "../styles/UserStyles.css"
 
 function ProfileUser() {
     const [isFormVisible, setFormVisible] = useState(false);
