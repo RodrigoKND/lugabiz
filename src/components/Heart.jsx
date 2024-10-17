@@ -13,7 +13,7 @@ function Heart() {
 
     return (
         <svg
-            className="icon icon-tabler icon-tabler-heart heart"
+            className="icon icon-tabler icon-tabler-heart heart cursor-pointer"
             width="30"
             height="30"
             viewBox="0 0 24 24"
@@ -23,7 +23,6 @@ function Heart() {
             strokeLinecap="round"
             strokeLinejoin="round"
             onClick={reaction}
-            style={{ cursor: "pointer" }}
         >
             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
             <path

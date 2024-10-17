@@ -8,7 +8,7 @@ function NavbarModule() {
         <header className="header_nav w-auto border border-bottom-3">
             <nav className="navbar navbar-expand-lg bg-body-tertiary">
                 <div className="container-fluid p-1">
-                    <Link className="navbar-brand fs-4 ms-3 text-purple fw-bold" to="/">
+                    <Link className="text-decoration-none fs-4 ms-3 text-purple fw-bold" to="/">
                         Lugabiz
                     </Link>
                     <InputSearch />
