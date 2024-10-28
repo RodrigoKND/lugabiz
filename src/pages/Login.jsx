@@ -6,7 +6,7 @@ import { Formik } from "formik"
 import { object, string } from "yup"
 
 import Input from "../components/ui/Input"
-import { ErrorMessage } from "./NewAuthLogin"
+import ErrorMessage from "../components/ErrorMessage"
 
 import "../styles/FormsStyles.css"
 
@@ -31,10 +31,17 @@ function Login() {
     });
 
     const handleSubmit = (values) => {
-        if (values.email === "correo@gmail.com" && values.password === "password123") {
+        if (values.email === "admin@gmail.com" && values.password === "password123") {
             // Redirigir al usuario a AdminPage o a ProfileUser, dependiendo de si el usuario es administrador o no
             setIsErrorLogin(false)
             navigate("/AdminPage")
+            return
+        }
+
+        if (values.email === "midu@gmail.com" && values.password === "password123") {
+            // Redirigir al usuario a AdminPage o a ProfileUser, dependiendo de si el usuario es administrador o no
+            setIsErrorLogin(false)
+            navigate("/profile")
             return
         }
         // Existe un error al registrar
@@ -64,7 +71,7 @@ function Login() {
                                         name="email"
                                         onChange={handleChange}
                                         onBlur={handleBlur}
-                                        styleClass={touched.email && errors.email && "border border-danger"}
+                                        styleClass={`${touched.email && errors.email && "border border-danger"} form-control`}
                                         value={values.email}
                                     />
                                     {touched.email && errors.email && <ErrorMessage message={errors.email} />}
@@ -77,7 +84,7 @@ function Login() {
                                         name="password"
                                         onChange={handleChange}
                                         onBlur={handleBlur}
-                                        styleClass={errors.password && touched.password && "border border-danger"}
+                                        styleClass={`${errors.password && touched.password && "border border-danger"} form-control`}
                                         value={values.password}
                                     />
                                     {touched.password && errors.password && <ErrorMessage message={errors.password} />}

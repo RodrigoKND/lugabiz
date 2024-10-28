@@ -92,12 +92,12 @@ function PlaceDetail() {
                         items={["Detalles", "Comentarios", "Me encanta"]}
                     />
                 </div>
-                <p className="text-wrap text-muted">
+                <p className="text-wrap text-muted" style={{lineHeight: "2"}}>
                     Café La Esquina es un lugar acogedor donde puedes disfrutar de deliciosos cafés, pasteles caseros y un ambiente relajado.
                     Perfecto para trabajar, reunirse con amigos o simplemente disfrutar de un momento tranquilo. Nuestro café es de origen
                     local y tostado artesanalmente, garantizando una experiencia única en cada taza.
                 </p>
-                <h3 className="bold text-sencondary my-5">Explora más lugares</h3>
+                <h3 className="bold text-sencondary my-4">Explora más lugares</h3>
                 <div className="d-flex flex-wrap gap-4">
                     <Card />
                     <Card />

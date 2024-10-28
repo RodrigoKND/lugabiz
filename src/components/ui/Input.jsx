@@ -9,12 +9,13 @@ function Input(props) {
         onBlur, 
         value,
         name='',
-        error
+        error,
+        accept = ''
     } = props
 
     return (
         <input
-            className={`border rounded p-2 ${styleClass} ${isBarSearch ? "header_input" : "w-100 form-control"} ${error ? "border-danger" : ""}`}
+            className={`border rounded p-2 ${styleClass} ${isBarSearch ? "header_input" : "w-100"} ${error ? "border-danger" : ""}`}
             type={type}
             id={id}
             placeholder={placeholder}
@@ -25,6 +26,7 @@ function Input(props) {
             maxLength={50}
             onChange = {onChange}
             autoComplete="off"
+            accept={accept}
             onBlur={onBlur}
             value={value}
         />

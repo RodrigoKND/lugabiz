@@ -1,10 +1,13 @@
 import React, { useState } from "react"
-import Card from "../components/Card"
-import Navigation from "../components/Navigation"
 import Ilocation from "../Icons/Ilocation"
 import Icalendar from "../Icons/Icalendar"
 import Iheart from "../Icons/Iheart"
-import IcloseX from "../Icons/IcloseX"
+
+
+import Card from "../components/Card"
+import Navigation from "../components/Navigation"
+import Modal from "../components/ui/Modal"
+import FormPostPlace from "../components/FormPostPlace"
 
 import "../styles/UserStyles.css"
 
@@ -44,14 +47,14 @@ function ProfileUser() {
         setPlaceName("");
         setDescription("");
         setImage(null);
-        setFormVisible(false); // Ocultar el formulario después de enviar
+        setFormVisible(false);
     };
 
     return (
         <section
-            className="container d-flex justify-content-center  h-auto"
+            className="container d-flex justify-content-center  h-auto w-auto"
         >
-            <div className="d-flex justify-content-center flex-column" style={{ width: "80%" }}>
+            <div className="d-flex justify-content-center flex-column">
                 <header className="text-center mt-5 d-flex justify-content-center">
                     <div className="d-flex align-items-center mx-4">
                         <img
@@ -95,8 +98,8 @@ function ProfileUser() {
                     classStyle={"bg-tomato text-white rounded-pill"}
                     items={["Publicaciones", "Lugares favoritos", "Logros", "Reseñas"]}
                 />
+                {/* Mostrar las tarjetas creadas */}
                 <div className="d-flex flex-wrap justify-content-center gap-4 py-4">
-                    {/* Mostrar las tarjetas creadas */}
                     {cards.map((card, index) => (
                         <Card key={index} title={card.title} body={card.body} href={card.image} />
                     ))}
@@ -110,146 +113,16 @@ function ProfileUser() {
                 </div>
 
                 {isFormVisible && (
-                    <section className="modal">
-                        <form onSubmit={handleSubmit} className="form p-2">
+                    <Modal onSubmit={handleSubmit} isVisibleModal={isFormVisible}
+                        onShowModal={() => setFormVisible(false)}>
+                        <FormPostPlace onSubmit={handleSubmit}>
                             <header className="d-flex justify-content-end">
-                                <IcloseX onClick={() => setFormVisible(false)} />
+                                <button type="button" className="btn-close"
+                                    aria-label="Close" onClick={() => setFormVisible(false)}></button>
                             </header>
-                            <h2>Crear Publicación</h2>
-                            <div>
-                                <label htmlFor="placeName">Nombre del Lugar:</label>
-                                <input
-                                    type="text"
-                                    id="placeName"
-                                    value={placeName}
-                                    onChange={(e) => setPlaceName(e.target.value)}
-                                    required
-                                />
-                            </div>
-                            <div>
-                                <label htmlFor="description">Descripción:</label>
-                                <textarea
-                                    id="description"
-                                    value={description}
-                                    onChange={(e) => setDescription(e.target.value)}
-                                    required
-                                />
-                            </div>
-                            <div>
-                                <label htmlFor="location">Direccion:</label>
-                                <textarea
-                                    id="text"
-                                    value={location}
-                                    onChange={(e) => setlocation(e.target.value)}
-                                    required
-                                />
-                            </div>
-
-                            <div>
-                                <label htmlFor="type">Tipo de Lugar:</label>
-                                <select
-                                    id="type"
-                                    value={type}
-                                    onChange={(e) => setType(e.target.value)}
-                                    required
-                                >
-                                    <option value="">Seleccionar tipo</option>
-                                    <option value="restaurante">Restaurante</option>
-                                    <option value="bar">Bar</option>
-                                    <option value="tienda">Tienda</option>
-                                    <option value="parque">Parque</option>
-                                    <option value="cafeteria">Cafeteria</option>
-
-                                </select>
-                            </div>
-                            <div className="social-group">
-                                <div>
-                                    <label>Grupos Sociales:</label>
-                                    <div>
-                                        <label>
-                                            <input
-                                                type="checkbox"
-                                                value="familia"
-                                                checked={selectedGroups.includes("familia")}
-                                                onChange={(e) => handleGroupSelection(e.target.value)}
-                                            />
-                                            Planes en familia
-                                        </label>
-                                    </div>
-                                    <div>
-                                        <label>
-                                            <input
-                                                type="checkbox"
-                                                value="pareja"
-                                                checked={selectedGroups.includes("pareja")}
-                                                onChange={(e) => handleGroupSelection(e.target.value)}
-                                            />
-                                            En pareja
-                                        </label>
-                                    </div>
-                                    <div>
-                                        <label>
-                                            <input
-                                                type="checkbox"
-                                                value="amigos"
-                                                checked={selectedGroups.includes("amigos")}
-                                                onChange={(e) => handleGroupSelection(e.target.value)}
-                                            />
-                                            Amigos
-                                        </label>
-                                    </div>
-                                    <div>
-                                        <label>
-                                            <input
-                                                type="checkbox"
-                                                value="petfrendly"
-                                                checked={selectedGroups.includes("petfrendly")}
-                                                onChange={(e) => handleGroupSelection(e.target.value)}
-                                            />
-                                            Con mascota
-                                        </label>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            <div className="time-container">
-                                <div>
-                                    <label htmlFor="openingHours">Horario de Apertura:</label>
-                                    <input
-                                        type="time"
-                                        id="openingHours"
-                                        value={openingHours}
-                                        onChange={(e) => setOpeningHours(e.target.value)}
-                                        required
-                                    />
-                                </div>
-
-                                <div>
-                                    <label htmlFor="closingHours">Horario de Cierre:</label>
-                                    <input
-                                        type="time"
-                                        id="closingHours"
-                                        value={closingHours}
-                                        onChange={(e) => setClosingHours(e.target.value)}
-                                        required
-                                    />
-                                </div>
-                            </div>
-                            <div>
-                                <label htmlFor="image">Cargar Imagen:</label>
-                                <input
-                                    type="file"
-                                    id="image"
-                                    onChange={(e) => setImage(e.target.files[0])}
-                                />
-                            </div>
-                            <div className="d-flex justify-content-center">
-                                <button type="submit"
-                                    className="bg-tomato text-white px-5 py-2 border border-0 rounded-3">Enviar</button>
-                            </div>
-                        </form>
-                    </section>
+                            <h4 className="mt-3 mb-4 text-center">Comparte tu sitio favorito</h4>
+                        </FormPostPlace>
+                    </Modal>
                 )}
 
             </div>

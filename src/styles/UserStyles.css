@@ -1,14 +1,8 @@
-body {
-    font-family: "Space Grotesk", serif;
-    margin: 0;
-    height: 100vh;
-}
-
-
 .button-container {
     position: fixed; /* Fijar la posición */
-    bottom: 20px; /* Espacio desde el fondo */
-    right: 20px; /* Espacio desde la derecha */
+    bottom: 0; /* Espacio desde el fondo */
+    right: 0;
+    padding: 20px; /* Espacio desde la derecha */
 }
 
 .circular-button {
@@ -29,40 +23,13 @@ body {
 }
 
 .circular-button:hover {
-    background-color: #ad6cdf; /* Color al pasar el mouse */
-}
-.modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
-    z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
+    background-color: #ad6cdf;
 }
 
-.form {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 300px; /* Ancho del formulario */
-}
-
-.form div {
-    margin-bottom: 15px;
-}
-
-.form label {
-    display: block;
-    margin-bottom: 5px;
+.isModalVisible {
+    background-color: rgba(154, 150, 150, 0.7);
 }
 
 .form input, .form textarea {
-    width: 100%;
-    padding: 8px;
     box-sizing: border-box;
 }
