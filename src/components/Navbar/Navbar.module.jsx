@@ -16,7 +16,7 @@ function NavbarModule() {
                         {isLogging ? <ImageProfileUser />
                             :
                             <Link to="/login"
-                                className="nav-link text-white bg-tomato px-4 py-2 rounded-3 me-3">
+                                className="nav-link bg-gray-light px-4 py-2 rounded-3 me-3">
                                 Iniciar sesión
                             </Link>
                         }

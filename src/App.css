@@ -1,64 +1,47 @@
-.text-purple{
+.text-purple {
     color: #6E51A9;
 }
-.bg-tomato{
-    background-color:rgb(252, 100, 100);
+
+.bg-tomato {
+    background-color: rgb(252, 100, 100);
 }
-.bg-purple{
+
+.bg-purple {
     background-color: #AC78F5;
 }
 
-.border_purple{
-    border:1px solid #AC78F5;
+.border_purple {
+    border: 1px solid #AC78F5;
 }
 
-.border-purple{
-    border:1px solid #AC78F5;
+.border-purple {
+    border: 1px solid #AC78F5;
     border-radius: 20px;
     cursor: pointer;
 }
+
 .border-tomato {
     border: 1px solid rgb(252, 100, 100);
 }
-.bg-gray-light{
-    background-color: #F3F4F6;
+
+.bg-gray-light {
+    background-color: #eeeff1;
 }
 
-.cursor-pointer{
+.cursor-pointer {
     cursor: pointer;
 }
+
 .custom-background {
-    background-color: #ffffff; 
+    background-color: #ffffff;
 }
 
 
 .form {
-    overflow: auto;
-    margin-top: 10px;
-    padding: 30px;
-    z-index: 10;
-    position: relative;
-    background-color: white;
-    border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 80%; 
-    max-width: 550px; 
-    height: 80%; 
-    margin: 0 auto;
+    width: 45%;
 }
 
-
-
-/* Ajusta los campos de texto y áreas de texto */
-.form input[type="text"],
-.form textarea {
-    width: 100%; 
-    padding: 12px;
-    margin: 3px 0;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-}
 
 /* Hover en botones */
 .form button:hover {
@@ -69,15 +52,19 @@
 .form input[type="file"] {
     margin: 15px 0;
 }
+
 .time-container {
     display: flex;
     justify-content: space-between;
-    gap: 100px; /* Espacio entre los elementos */
-    margin: 20px 0; /* Margen entre el contenedor de tiempos y otros elementos */
+    gap: 100px;
+    /* Espacio entre los elementos */
+    margin: 20px 0;
+    /* Margen entre el contenedor de tiempos y otros elementos */
 }
+
 /*hora de abertura y hora de cierre*/
 .time-container div {
-    flex: 1; 
+    flex: 1;
 }
 
 .time-container label {
@@ -92,6 +79,7 @@
     border: 1px solid #ccc;
     font-size: 16px;
 }
+
 /*seleccion multiple de los grupos*/
 .social-group {
     margin-top: 20px;
@@ -100,17 +88,20 @@
 .social-group label {
     display: flex;
     align-items: center;
-    margin-bottom: 10px; /* Espacio entre cada línea de checkbox */
-    font-size: 16px; /* Tamaño de la fuente del texto de los checkboxes */
+    margin-bottom: 10px;
+    /* Espacio entre cada línea de checkbox */
+    font-size: 16px;
+    /* Tamaño de la fuente del texto de los checkboxes */
 }
 
 .social-group input[type="checkbox"] {
-    margin-right: 10px; /* Espacio entre el checkbox y el texto */
+    margin-right: 10px;
+    /* Espacio entre el checkbox y el texto */
     width: 18px;
-    height: 15px; 
+    height: 15px;
 }
 
-.social-group > label {
+.social-group>label {
     font-weight: bold;
-    margin-bottom: 15px; 
+    margin-bottom: 15px;
 }

@@ -1,9 +1,10 @@
+import { Link } from "react-router-dom"
 import Navigation from "../components/Navigation"
 import Card from "../components/Card"
-import "../styles/Home/Hero.css"
 import Heart from "../components/Heart"
-import { Link } from "react-router-dom"
+import ImarkerLocation from "../Icons/ImarkerLocation"
 
+import "../styles/Home/Hero.css"
 function Home() {
     return (
         <>
@@ -39,7 +40,7 @@ function Home() {
                                     <header>
                                         <h3 className="card-title text-purple text-capitalize">Parque Central</h3>
                                         <p className="my-4">
-                                            {/*Icono de ubicacion*/}
+                                            <span className="me-2"><ImarkerLocation /></span>
                                             Ciudad Ejemplo, País
                                         </p>
                                         <p className="card-text text-wrap ">

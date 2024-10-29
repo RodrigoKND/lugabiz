@@ -1,7 +1,8 @@
 import { Formik } from "formik"
 import { object, string, array } from "yup"
 import FieldsForm from "../components/FieldsForm"
-import Select from "./ui/Select";
+import Button from "./ui/Button"
+import Select from "./ui/Select"
 
 const initialValues = {
     placeName: "",
@@ -68,14 +69,14 @@ function FormPostPlace({ onSubmit, children }) {
                 isSubmitting,
             }) => (
                 <form onSubmit={onSubmit}
-                    className="rounded-3 w-50 form bg-white shadow-lg h-100">
+                    className="form overflow-auto mt-3 p-4 z-3 bg-white rounded-3 h-100 m-auto bg-white shadow-lg h-100 position-realtive">
                     {children}
-                    <div className="px-2">
+                    <div className="px-2 mb-4">
                         <FieldsForm idInput="placeName"
                             textLabel="Nombre del lugar"
                             onChangeInput={handleChange}
                             valueInput={values.placeName} />
-                        <div>
+                        <div className="my-3">
                             <label htmlFor="description">Descripción</label>
                             <textarea
                                 id="description"
@@ -117,7 +118,7 @@ function FormPostPlace({ onSubmit, children }) {
                                 ))
                             }
                         </div>
-                        <div className="d-flex gap-3 justify-content-evenly">
+                        <div className="d-flex gap-3 my-3 justify-content-evenly">
                             <FieldsForm idInput="openingHours"
                                 type="time"
                                 textLabel="Horario de Apertura"
@@ -135,13 +136,17 @@ function FormPostPlace({ onSubmit, children }) {
                             onChangeInput={handleChange}
                             valueInput={values.image} />
                     </div>
-                    <button type="submit"
-                        className="bg-tomato text-white py-2 w-100 border border-0 rounded-3">
-                        Enviar
-                    </button>
+
+                    <Button type="submit"
+                        isSubmitting={isSubmitting}
+                        onClick={handleSubmit}
+                        styleButton={`bg-tomato text-white`}
+                    >
+                    Enviar
+                </Button>
                 </form>
-            )
-            }
+    )
+}
         </Formik >
     )
 }

@@ -11,7 +11,7 @@ function FieldsForm(props) {
     } = props
     return (
         <div>
-            <label className="mb-2" htmlFor={idInput}>{textLabel}</label>
+            <label className="mt-2" htmlFor={idInput}>{textLabel}</label>
             <Input
                 type={type}
                 id={idInput}

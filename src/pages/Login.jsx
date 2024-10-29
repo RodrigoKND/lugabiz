@@ -9,6 +9,9 @@ import Input from "../components/ui/Input"
 import ErrorMessage from "../components/ErrorMessage"
 
 import "../styles/FormsStyles.css"
+import IarrowBack from "../Icons/IarrowBack"
+import FieldsForm from "../components/FieldsForm"
+import Button from "../components/ui/Button"
 
 function MessageAlertError({ message }) {
     return (
@@ -49,8 +52,13 @@ function Login() {
     };
 
     return (
-        <div className="container d-flex justify-content-center align-items-center" style={{ height: "100vh" }}>
+        <section className="container d-flex justify-content-center align-items-center" style={{ height: "100vh" }}>
             <div className="p-4 d-flex justify-content-center flex-column" style={{ width: "45%" }}>
+                <header className="mb-4">
+                    <Link to="/">
+                        <IarrowBack />
+                    </Link>
+                </header>
                 <h1 className="text-pretty fw-bold">Iniciar sesión</h1>
                 <Formik
                     initialValues={{ email: '', password: '' }}
@@ -62,13 +70,9 @@ function Login() {
                         <form onSubmit={handleSubmit}>
                             {isErrorLogin && (<MessageAlertError message="El correo electrónico o la contraseña no son correctos" />)}
                             <div className="d-flex flex-column gap-3 mt-3">
-                                <div className="mb-2">
-                                    <label htmlFor="email" className="form-label text-muted">Correo electrónico</label>
-                                    <Input
-                                        type="email"
-                                        id="email"
-                                        placeholder="example@gmail.com"
-                                        name="email"
+                                <div>
+                                    <FieldsForm
+                                        idInput="email" textLabel="Correo Electrónico"
                                         onChange={handleChange}
                                         onBlur={handleBlur}
                                         styleClass={`${touched.email && errors.email && "border border-danger"} form-control`}
@@ -76,27 +80,25 @@ function Login() {
                                     />
                                     {touched.email && errors.email && <ErrorMessage message={errors.email} />}
                                 </div>
+
                                 <div className="mb-3">
-                                    <label htmlFor="password" className="form-label text-muted">Contraseña</label>
-                                    <Input
-                                        type="password"
-                                        id="password"
-                                        name="password"
+                                    <FieldsForm
+                                        idInput="password"
+                                        textLabel="Contraseña"
                                         onChange={handleChange}
                                         onBlur={handleBlur}
                                         styleClass={`${errors.password && touched.password && "border border-danger"} form-control`}
                                         value={values.password}
                                     />
                                     {touched.password && errors.password && <ErrorMessage message={errors.password} />}
-
                                 </div>
-                                <button
-                                    type="submit"
-                                    className="p-2 rounded-2 bg-tomato text-white border border-0 cursor-pointer"
-                                    disabled={isSubmitting}
+                                <Button type="submit"
+                                    isSubmitting={isSubmitting}
+                                    onClick={handleSubmit}
+                                    styleButton={`bg-tomato text-white`}
                                 >
                                     Enviar
-                                </button>
+                                </Button>
 
                             </div>
                         </form>
@@ -106,7 +108,7 @@ function Login() {
                     <p>¿No tienes una cuenta? <Link to="/auth" className="text-pretty">Regístrarse</Link></p>
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 

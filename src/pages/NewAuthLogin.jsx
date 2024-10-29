@@ -3,6 +3,8 @@ import { object, string, date } from "yup";
 import FieldsForm from "../components/FieldsForm";
 import ErrorMessage from "../components/ErrorMessage";
 import Button from "../components/ui/Button";
+import { Link } from "react-router-dom";
+import IarrowBack from "../Icons/IarrowBack";
 
 const initialValues = {
     name: "",
@@ -24,6 +26,11 @@ function NewAuthLogin() {
     return (
         <section className="d-flex justify-content-center my-5 h-auto align-items-center">
             <div className="px-2 d-flex justify-content-center flex-column" style={{ width: "35%" }}>
+                <header className="mb-4">
+                    <Link to="/login">
+                        <IarrowBack />
+                    </Link>
+                </header>
                 <h3 className="text-pretty fw-bold">Estas a pocos pasos 😊</h3>
                 <Formik
                     initialValues={initialValues}
@@ -97,8 +104,8 @@ function NewAuthLogin() {
                                 {touched.password && errors.password && <ErrorMessage message={errors.password} />}
                             </div>
                             <Button type="submit"
-                                text="Enviar"
                                 isSubmitting={isSubmitting}
+                                styleButton={`bg-tomato text-white`}
                             >
                                 Enviar
                             </Button>
