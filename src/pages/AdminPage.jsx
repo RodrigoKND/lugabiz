@@ -4,9 +4,9 @@ import '../styles/AdminStyles.css'; // Si decides agregar estilos específicos
 
 const AdminPage = () => {
     return (
-        <div className="admin-container">
+        <section className="admin-container">
             <header className="admin-header">
-                <h1>Panel de Administrador</h1>
+                <h2>Panel de Administrador</h2>
             </header>
             <div className="table-container">
                 <table className="table">
@@ -36,7 +36,7 @@ const AdminPage = () => {
                 <Link to="/delete" className="admin-button">Eliminar</Link>
                 <Link to="/modify" className="admin-button">Modificar</Link>
             </div>
-        </div>
+        </section>
     );
 };
 
