@@ -17,9 +17,10 @@ function FieldsForm(props) {
                 id={idInput}
                 value={valueInput}
                 onChange={onChangeInput}
-                styleClass={styleClass}
+                styleClass={type !== "email" && type !== "password" ? "text-capitalize" : styleClass}
                 placeholder={placeholder}
-                accept={type === "file" && "image/jpeg, image/png, image/jpg"}
+                autoComplete="off"
+                accept={type === "file" ? "image/jpeg, image/png, image/jpg" : "text/plain"}
             />
         </div>
     )

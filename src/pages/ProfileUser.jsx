@@ -1,133 +1,155 @@
 import React, { useState } from "react"
-import Ilocation from "../Icons/Ilocation"
 import Icalendar from "../Icons/Icalendar"
-import Iheart from "../Icons/Iheart"
-
-
 import Card from "../components/Card"
-import Navigation from "../components/Navigation"
-import Modal from "../components/ui/Modal"
-import FormPostPlace from "../components/FormPostPlace"
 
-import "../styles/UserStyles.css"
 
 function ProfileUser() {
-    const [isFormVisible, setFormVisible] = useState(false);
-    const [placeName, setPlaceName] = useState("");
-    const [description, setDescription] = useState("");
-    const [location, setlocation] = useState("");
-    const [type, setType] = useState("");
-    const [openingHours, setOpeningHours] = useState("");
-    const [closingHours, setClosingHours] = useState("");
-    const [image, setImage] = useState(null);
-    const [cards, setCards] = useState([]); // Estado para las tarjetas
-    const [selectedGroups, setSelectedGroups] = useState([]);
-    const handleGroupSelection = (value) => {//seleccion de grupos sociales
-        if (selectedGroups.includes(value)) {
-            setSelectedGroups(selectedGroups.filter((group) => group !== value));
-        } else {
-            setSelectedGroups([...selectedGroups, value]);
-        }
-    };
+    const [active, setActive] = useState('posts');
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-
-        // Crear un nuevo objeto de tarjeta
-        const newCard = {
-            title: placeName,
-            body: description,
-            image: image ? URL.createObjectURL(image) : null // Crear URL temporal para la imagen
-        };
-
-        // Agregar la nueva tarjeta al estado
-        setCards([...cards, newCard]);
-
-        // Reiniciar el formulario
-        setPlaceName("");
-        setDescription("");
-        setImage(null);
-        setFormVisible(false);
-    };
+    const tabs = [
+        { id: 'posts', label: 'Publicaciones' },
+        { id: 'visits', label: 'Mis visitas' },
+        { id: 'achievements', label: 'Logros' },
+    ];
 
     return (
-        <section
-            className="container d-flex justify-content-center  h-auto w-auto"
-        >
-            <div className="d-flex justify-content-center flex-column">
-                <header className="text-center mt-5 d-flex justify-content-center">
-                    <div className="d-flex align-items-center mx-4">
-                        <img
-                            src="https://avatars.githubusercontent.com/u/1561955?v=4"
-                            alt="usuario"
-                            width="100"
-                            height="100"
-                            className="rounded-pill object-fit-cover imageUser z-2"
-                        />
-                    </div>
-                    <div className="d-flex flex-column">
-                        <h4 className="mt-3 text-start mx-2 text-capitalize">
-                            Miguel Durán
-                        </h4>
-                        <div className="d-flex justify-content-evenly gap-3 my-2">
-                            <span className="d-flex flex-column align-items-center px-3 py-2">
-                                <Iheart />
-                                <small>4.9 me gusta</small>
-                            </span>
-                            <span className="d-flex flex-column align-items-center px-3 py-2">
-                                <Ilocation />
-                                <small>Madrid, España</small>
-                            </span>
-                            <span className="d-flex flex-column align-items-center px-3 py-2">
-                                <Icalendar />
-                                <small>Se unió en 2024</small>
-                            </span>
-                        </div>
-                        <div className="d-flex flex-column">
-                            <div className="d-flex justify-content-center gap-3">
-                                <button className="py-2 px-4 rounded-3 border border-0 bg-tomato text-white">Seguir</button>
-                                <button className="py-2 px-4 rounded-3 border ">Me gusta</button>
+        <section className="w-100 shadow-sm">
+            <header>
+                <div className="h-50 bg-header-profile position-relative"></div>
+                <div className="container">
+                    <div className="row align-items-center justify-content-center justify-content-sm-start position-relative pb-3"
+                    >
+                        <div className="col-auto" style={{ marginTop: "-80px" }}>
+                            <div className="position-relative">
+                                <img
+                                    src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&fit=crop&q=80&w=150&h=150"
+                                    alt="Miguel Durán"
+                                    className="rounded-3 shadow-sm border border-4 border-white"
+                                    style={{ width: "10rem", height: "10rem", objectFit: "cover" }}
+                                />
+                                <div className="position-absolute bottom-0 end-0">
+                                    <button className="border border-0 p-2 cursor-pointer bg-primary rounded-pill"
+                                        style={{ background: "none" }}>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                            fill="none" stroke="white" strokeWidth="2" strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            className="icon icon-tabler icons-tabler-outline icon-tabler-camera-up">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                            <path d="M12 20h-7a2 2 0 0 1 -2 -2v-9a2 2 0 0 1 2 -2h1a2 2 0 0 0 2 -2a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1a2 2 0 0 0 2 2h1a2 2 0 0 1 2 2v3.5" />
+                                            <path d="M12 16a3 3 0 1 0 0 -6a3 3 0 0 0 0 6z" />
+                                            <path d="M19 22v-6" />
+                                            <path d="M22 19l-3 -3l-3 3" />
+                                        </svg>
+                                    </button>
+
+                                </div>
                             </div>
-
+                        </div>
+                        <div className="col mt-3 mt-sm-0 d-flex flex-column flex-sm-row align-items-center align-items-sm-end gap-3 w-100">
+                            <div className="text-center text-sm-start">
+                                <h1 className="fs-3 fw-bold text-dark">Miguel Smith</h1>
+                                <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-sm-start mt-2 text-secondary gap-2">
+                                    <div className="d-flex align-items-center">
+                                        <i className="bi bi-star-fill me-1"></i>
+                                        <span className="fw-medium">4.9 me gusta</span>
+                                    </div>
+                                    <div className="d-flex align-items-center">
+                                        <i className="bi bi-calendar-fill me-1"></i>
+                                        <span>Se unió en 2024</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="ms-sm-auto d-flex gap-2">
+                                <button className="btn text-white px-4 py-2" title="Sigue a Miguel Durán"
+                                    style={{ background: "linear-gradient(to right, #f43f5e, #ec4899)" }}>
+                                    Seguir
+                                </button>
+                                <button className="border px-4 py-2" title="Me gusta 🙌">
+                                    Me gusta
+                                </button>
+                                <button className="border" style={{ background: "none" }} title="Programa tu dia especial">
+                                    <Icalendar />
+                                </button>
+                            </div>
                         </div>
                     </div>
-                </header>
-                <hr />
-                <Navigation
-                    classStyleContainer={"justify-content-center custom-background"}
-                    classStyle={"bg-tomato text-white rounded-pill"}
-                    items={["Publicaciones", "Lugares favoritos", "Logros", "Reseñas"]}
-                />
-                {/* Mostrar las tarjetas creadas */}
-                <div className="d-flex flex-wrap justify-content-center gap-4 py-4">
-                    {cards.map((card, index) => (
-                        <Card key={index} title={card.title} body={card.body} href={card.image} />
-                    ))}
+                </div>
+            </header>
+            <div style={{ background: "#FFF6F6" }}>
+                <div className="d-flex flex-wrap gap-4 justify-content-center p-5">
+                    <div className="card w-25 shadow-sm border border-0">
+                        <div className="card-body text-center">
+                            <h5 className="card-title">42</h5>
+                            <p className="card-text">
+                                Publicaciones
+                            </p>
+                        </div>
+                    </div>
+                    <div className="card w-25 shadow-sm border border-0">
+                        <div className="card-body text-center">
+                            <h5 className="card-title">1205</h5>
+                            <p className="card-text">
+                                Seguidores
+                            </p>
+                        </div>
+                    </div>
+                    <div className="card w-25 shadow-sm border border-0">
+                        <div className="card-body text-center">
+                            <h5 className="card-title">891</h5>
+                            <p className="card-text">
+                                Siguiendo
+                            </p>
+                        </div>
+                    </div>
                 </div>
 
-                {/* Botón Circular */}
-                <div className="button-container">
-                    <button className="circular-button" onClick={() => setFormVisible(true)}>
-                        +
-                    </button>
+
+                <div className="border-buttom px-4">
+                    <div className="d-flex gap-1 overflow-x-auto">
+                        {tabs.map((tab) => (
+                            <button
+                                key={tab.id}
+                                onClick={() => setActive(tab.id)}
+                                className={`py-3 px-4 position-relative border border-0 bg-transparent
+                                     ${active === tab.id
+                                        ? 'font-medium'
+                                        : 'text-muted'
+                                    }`}
+                                style={active === tab.id ? styles.text_rose: {}}
+                            >
+                                {tab.label}
+                                {active === tab.id && (
+                                    <div className="position-absolute bottom-0 end-0 start-0"
+                                        style={styles.com} />
+                                )}
+                            </button>
+                        ))}
+                    </div>
                 </div>
 
-                {isFormVisible && (
-                    <Modal onSubmit={handleSubmit} isVisibleModal={isFormVisible}
-                        onShowModal={() => setFormVisible(false)}>
-                        <FormPostPlace onSubmit={handleSubmit}>
-                            <header className="d-flex justify-content-end">
-                                <button type="button" className="btn-close"
-                                    aria-label="Close" onClick={() => setFormVisible(false)}></button>
-                            </header>
-                            <h4 className="mt-3 mb-4 text-center">Comparte tu sitio favorito</h4>
-                        </FormPostPlace>
-                    </Modal>
-                )}
+                <div className="d-flex flex-wrap justify-content-center gap-4 p-5">
+                    <Card title="Avenida América Esquina Libertador" body="Hermoso lugar con suculenta comida" href="https://www.infodiez.com/wp-content/uploads/2019/09/Platostipicosdecochabamba_infodiez-1000x600.jpg" />
+                    <Card title="Avenida América Oeste Esquina Portales" body="Fundación Patiño para visitar y pasar el rato" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZs7mGaUKlPV0Lx8fWo6cpBQJT2NhJCHQF2w&s" />
+                    <Card title="Avenida América Esquina Libertador" body="Hermoso lugar con suculenta comida" href="https://www.infodiez.com/wp-content/uploads/2019/09/Platostipicosdecochabamba_infodiez-1000x600.jpg" />
+                    <Card title="Avenida América Oeste Esquina Portales" body="Fundación Patiño para visitar y pasar el rato" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZs7mGaUKlPV0Lx8fWo6cpBQJT2NhJCHQF2w&s" />
+                </div>
 
+                
             </div>
         </section>
+
     );
+}
+
+const styles = {
+    com: {
+        background: "linear-gradient(to right, #f43f5e, #ec4899)",
+        height: "0.5rem",
+    },
+
+    text_rose: {
+        color: "#F0517F"
+    }
 }
 
 export default ProfileUser;

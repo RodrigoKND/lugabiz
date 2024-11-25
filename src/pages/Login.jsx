@@ -5,14 +5,13 @@ import { useNavigate } from "react-router-dom"
 import { Formik } from "formik"
 import { object, string } from "yup"
 
-import Input from "../components/ui/Input"
 import ErrorMessage from "../components/ErrorMessage"
 
-import "../styles/FormsStyles.css"
 import IarrowBack from "../Icons/IarrowBack"
 import FieldsForm from "../components/FieldsForm"
 import Button from "../components/ui/Button"
 
+import "../styles/FormsStyles.css"
 function MessageAlertError({ message }) {
     return (
         <div className="rounded-1 text-center" style={{ backgroundColor: "#FFE3E1" }}>
@@ -34,21 +33,32 @@ function Login() {
     });
 
     const handleSubmit = (values) => {
-        if (values.email === "admin@gmail.com" && values.password === "password123") {
-            // Redirigir al usuario a AdminPage o a ProfileUser, dependiendo de si el usuario es administrador o no
-            setIsErrorLogin(false)
-            navigate("/AdminPage")
-            return
+        if(values.email === "admin@email.com" && values.password === "adminlugabiz2024"){
+            sessionStorage.setItem("isLogged", true);
+            navigate("/AdminPage");
         }
+        fetch("http://localhost:3000/api/v1/auth/user_register", {
+            method: "POST",
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify(values),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data)   
+                if (data) {
+                    sessionStorage.setItem("isLogged", true);
+                    navigate("/");
+                    setIsErrorLogin(false);
+                }
+            })
+            .catch((err) => {
+                console.log(err)
+                setIsErrorLogin(true)
 
-        if (values.email === "midu@gmail.com" && values.password === "password123") {
-            // Redirigir al usuario a AdminPage o a ProfileUser, dependiendo de si el usuario es administrador o no
-            setIsErrorLogin(false)
-            navigate("/profile")
-            return
-        }
+            });
         // Existe un error al registrar
-        setIsErrorLogin(true)
     };
 
     return (
@@ -72,23 +82,25 @@ function Login() {
                             <div className="d-flex flex-column gap-3 mt-3">
                                 <div>
                                     <FieldsForm
+                                        type="email"
                                         idInput="email" textLabel="Correo Electrónico"
-                                        onChange={handleChange}
+                                        onChangeInput={handleChange}
+                                        valueInput={values.email}
                                         onBlur={handleBlur}
                                         styleClass={`${touched.email && errors.email && "border border-danger"} form-control`}
-                                        value={values.email}
                                     />
                                     {touched.email && errors.email && <ErrorMessage message={errors.email} />}
                                 </div>
 
                                 <div className="mb-3">
                                     <FieldsForm
+                                        type="password"
                                         idInput="password"
                                         textLabel="Contraseña"
-                                        onChange={handleChange}
+                                        onChangeInput={handleChange}
                                         onBlur={handleBlur}
                                         styleClass={`${errors.password && touched.password && "border border-danger"} form-control`}
-                                        value={values.password}
+                                        valueInput={values.password}
                                     />
                                     {touched.password && errors.password && <ErrorMessage message={errors.password} />}
                                 </div>

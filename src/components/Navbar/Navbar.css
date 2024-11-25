@@ -1,53 +1,95 @@
 .header_input {
     width: 20em;
     box-sizing: content-box;
-    transition: width .3s ease-in-out;
+    transition: width 0.3s ease-in-out;
+
+    &:focus {
+        outline: none;
+        box-shadow: 0 0 0px 4px #988ffb;
+        width: 30em;
+        margin-right: 5px;
+    }
 }
 
-.header_input:focus {
-    outline: none;
-    box-shadow: 0 0 0px 4px #988ffb; 
-    width: 30em;    
-    max-width: 1000em;
-    margin-right: 5px;
-}
-
-.header_nav {
+.header {
     position: sticky;
     z-index: 10;
     inset: 0;
+    & .header_nav {
+        display: flex;
+        justify-content: space-between;
+    }
 }
+
 
 .imageUser {
     cursor: pointer;
 
-    &:active{
-        border:1px solid rgb(164, 55, 163);
+    &:active {
+        border: 1px solid rgb(164, 55, 163);
     }
 }
-.menu{
+
+.menu {
     visibility: none;
     opacity: 0;
-    transition:opacity .2s ease-out, visibility 0s .2s;
+    transition: opacity .2s ease-out, visibility 0s .2s;
 }
-.showMenu{
+
+.showMenu {
     visibility: visible;
-    opacity:1;
+    opacity: 1;
     transition: opacity .2s ease-out;
 }
 
-.list-item{
+.list_item {
     background: none;
     backdrop-filter: blur(5px);
-    border: 1px solid rgb(222, 222, 222);
     list-style: none;
-    &:hover{
-        border:1px solid purple;
+
+    &:hover {
+        background-color: #EAEAEA;
     }
 }
 
-.list-item-logout{
+
+
+.list-item-logout {
     background-color: rgb(248, 84, 55);
     cursor: pointer;
     list-style: none;
+}
+
+
+@media (max-width: 768px) {
+    .imageUser {
+        display: none;
+    }
+
+    .title_page {
+        display: none;
+    }
+    .header_nav {
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .header_input {
+        width: 100%;
+        max-width: 100%; 
+
+        &::placeholder {
+            text-align: center;
+            font-size:small;
+        }
+
+        &:focus {
+            width: 70dvw;
+            margin-right: 0;
+        }
+    }
+    .group-nav {
+        display: flex;
+        justify-content: center;
+    }
 }

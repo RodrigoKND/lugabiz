@@ -140,7 +140,7 @@ function FormPostPlace({ onSubmit, children }) {
                     <Button type="submit"
                         isSubmitting={isSubmitting}
                         onClick={handleSubmit}
-                        styleButton={`bg-tomato text-white`}
+                        styleButton={`bg-tomato text-white w-100`}
                     >
                     Enviar
                 </Button>

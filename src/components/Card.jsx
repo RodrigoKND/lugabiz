@@ -1,40 +1,37 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Heart from "../components/Heart.jsx";
-import ImarkerLocation from "../Icons/ImarkerLocation.jsx";
+import ImarkerLocation from "../Icons/ImarkerLocation";
 
 function Card({ title, body, href }) {
-    const [likes, setLikes] = useState();
-
-    useEffect(() => {
-        async function fetchLikes() {
-            const response = await fetch("https://www.random.org/integers/?num=1&min=1&max=5&col=1&base=10&format=plain&rnd=new");
-            const text = await response.text();
-            setLikes(text);
-        }
-
-        fetchLikes();
-    }, []);
+    const [likes, setLikes] = useState(0);
 
     return (
-        <article className="card mb-5 rounded-4 shadow-sm border border-0" style={{ width: "18rem" }}>
-            <Link className="nav-link" to="/place/1">
+        <article className="card  rounded-4 shadow-sm border border-0" style={{ width: "18rem" }}>
+            <Link to="/place/1">
                 <img
                     src={href}
                     className="card-img-top cursor-pointer object-fit-cover"
+                    style={{ height: "10rem", width: "100%" }}
                     alt={title}
                 />
             </Link>
             <div className="card-body">
                 <h6 className="card-title text-muted">
-                    <span className="me-2"><ImarkerLocation /></span>
-                    {title}
+                    <ImarkerLocation />
+                    <span> {title} </span>
                 </h6>
-                <p className="card-text text-purple ms-1 mt-3">{body}</p>
+                <p className="card-text text-purple ms-1">{body}</p>
             </div>
-            <div className="p-2 d-flex justify-content-end align-items-center">
-                <span className="me-2">{likes} </span>
-                <Heart />
+            <div className="d-flex px-3 pb-3 justify-content-between align-items-center">
+                <div className="d-flex flex-column align-items-center">
+                    <strong className="text-muted">Bs. 100</strong>
+                    <span className="text-muted">Abierto</span>
+                </div>
+                <div>
+                    <span>{likes} </span>
+                    <Heart countLikes={likes} setCountLikes={setLikes} />
+                </div>
             </div>
         </article>
     );

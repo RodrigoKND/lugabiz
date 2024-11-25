@@ -12,11 +12,9 @@ function InputSearch() {
                     placeholder="Descubre asombrosas experiencias..."
                     type="search"
                 />
-                <span>
-                    <button className="btn input-group-text border" id="basic-addon1">
-                        <Isearch />
-                    </button>
-                </span>
+                <button className="btn input-group-text border" id="basic-addon1">
+                    <Isearch />
+                </button>
             </form>
         </div>
     );

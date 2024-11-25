@@ -1,14 +1,16 @@
 import { useState } from "react"
 import "../styles/AnimationHeart.css"
 
-function Heart() {
+function Heart({ countLikes, setCountLikes }) {
     const [fill, setFill] = useState("none")
 
     const color = "#fd0061"
 
     const reaction = (evt) => {
         const isFill = evt.currentTarget.getAttribute("fill") === color
+        setCountLikes(isFill ? countLikes - 1 : countLikes + 1)
         return isFill ? setFill("none") : setFill(color)
+
     }
 
     return (

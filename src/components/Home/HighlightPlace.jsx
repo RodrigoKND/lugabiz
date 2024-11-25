@@ -1,11 +1,13 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import ImarkerLocation from "../../Icons/ImarkerLocation";
 import Heart from "../Heart";
 
 function HighlightPlace() {
+    const [likes, setCountLikes] = useState(0)
     return (
         <section className="mx-5 my-5">
-            <h2 className="fw-bold mb-4 text-purple">Lugar Destacado</h2>
+            <h3 className="fw-bold mb-4 text-purple">Lugar Destacado</h3>
             <div className="d-flex flex-row justify-content-center gap-4">
                 <aside className="card mb-3 w-100 shadow-lg">
                     <div className="row g-3">
@@ -19,7 +21,7 @@ function HighlightPlace() {
                         <article className="col-md-8 p-4">
                             <div className="card-body">
                                 <header>
-                                    <h3 className="card-title text-purple text-capitalize">Parque Central</h3>
+                                    <h4 className="card-title text-purple text-capitalize">Parque Central</h4>
                                     <p className="my-4">
                                         <span className="me-2"><ImarkerLocation /></span>
                                         Ciudad Ejemplo, País
@@ -32,8 +34,8 @@ function HighlightPlace() {
                                     <Link to={"/place/1"}
                                         className="text-decoration-none p-2 rounded border_purple text-purple">Ver Detalles</Link>
                                     <div>
-                                        <Heart />
-                                        <span className="text-muted mx-2">4 likes</span>
+                                        <Heart countLikes={likes} setCountLikes={setCountLikes}/>
+                                        <span className="text-muted mx-2">{likes+30} likes</span>
                                     </div>
                                 </footer>
                             </div>

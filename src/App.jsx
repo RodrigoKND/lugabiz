@@ -1,4 +1,6 @@
-import "bootstrap/dist/css/bootstrap.min.css"
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+
 import { Routes, Route, HashRouter } from "react-router-dom"
 
 import NavbarModule from "./components/Navbar/Navbar.module"

@@ -1,25 +1,14 @@
 .button-container {
-    position: fixed; /* Fijar la posición */
-    bottom: 0; /* Espacio desde el fondo */
-    right: 0;
-    padding: 20px; /* Espacio desde la derecha */
+    padding-inline: 20px;
+    padding-block: 8px;
 }
 
 .circular-button {
     width: 60px;
     height: 60px;
-    border: none;
-    border-radius: 50%;
     background-color: #ea5564; /* Color de fondo */
-    color: white; /* Color de la cruz */
-    font-size: 30px; /* Tamaño de la cruz */
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s;
-    z-index: 9000;
 }
 
 .circular-button:hover {
@@ -32,4 +21,17 @@
 
 .form input, .form textarea {
     box-sizing: border-box;
+}
+
+.bg-header-profile{
+    background: linear-gradient(to right, #a6afe6, #d946ef, #8284e6);
+    min-height: 12rem; 
+}
+
+.translate-start-0 {
+    transform: translateX(0);
+}
+
+.translate-start-n100 {
+    transform: translateX(-100%);
 }

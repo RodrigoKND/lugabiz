@@ -5,6 +5,11 @@ import { Link } from "react-router-dom";
 // user, admin, singin y logout
 const optionsMenu = [
     {
+        role: "home",
+        content: "Home",
+        path: "/"
+    },
+    {
         role: "user",
         content: "perfil",
         path: "/profile"
@@ -27,8 +32,8 @@ function UserMenuOptions() {
             {
                 optionsMenu.map((item, index) => (
                     <li key={index} 
-                    className={`p-2 text-capitalize 
-                    ${item.role !== "logout" ? "list-item" : "list-item-logout text-white"}`}>
+                    className={`p-3 text-capitalize 
+                    ${item.role !== "logout" ? "list_item": "list-item-logout text-white"}`}>
                         <Link className="nav-link" to={item.path}>
                             {item.content}
                         </Link>

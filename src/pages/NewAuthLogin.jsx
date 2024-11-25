@@ -3,7 +3,7 @@ import { object, string, date } from "yup";
 import FieldsForm from "../components/FieldsForm";
 import ErrorMessage from "../components/ErrorMessage";
 import Button from "../components/ui/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import IarrowBack from "../Icons/IarrowBack";
 
 const initialValues = {
@@ -22,7 +22,7 @@ let userSchema = object().shape({
 });
 
 function NewAuthLogin() {
-
+    const navigate = useNavigate()
     return (
         <section className="d-flex justify-content-center my-5 h-auto align-items-center">
             <div className="px-2 d-flex justify-content-center flex-column" style={{ width: "35%" }}>
@@ -36,7 +36,21 @@ function NewAuthLogin() {
                     initialValues={initialValues}
                     validationSchema={userSchema}
                     onSubmit={(values) => {
-                        console.log(values)
+                        fetch('http://localhost:3000/api/v1/auth/user_new',{
+                            method: 'POST',
+                            headers: {
+                                'content-type': 'application/json'
+                            },
+                            body: JSON.stringify(values)
+                        })
+                        .then(res=>res.json())
+                        .then(data=>{
+                            if(data){
+                                sessionStorage.setItem("isLogged", true);
+                                navigate("/profile");
+                            }
+                        })
+                        .catch(err=>console.log(err))
                     }}
                 >
                     {({

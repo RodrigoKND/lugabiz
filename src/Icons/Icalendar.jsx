@@ -2,11 +2,11 @@ function Icalendar() {
     return (
         <svg
             className="icon icon-tabler icon-tabler-calendar-week"
-            width="35"
-            height="35"
+            width="30"
+            height="30"
             viewBox="0 0 24 24"
             strokeWidth="1.5"
-            stroke="#fd0061"
+            stroke="currentColor"
             fill="none"
             strokeLinecap="round"
             strokeLinejoin="round"
