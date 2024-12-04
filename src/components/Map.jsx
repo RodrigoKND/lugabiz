@@ -100,7 +100,7 @@ const MapOl = () => {
     return () => map.setTarget(null); // Limpieza del mapa al desmontar el componente
   }, []);
 
-  return <div ref={mapRef} style={{ width: "100%", height: "300px" }} />
+  return <div ref={mapRef} style={{ width: "100%", height: "400px" }} />
 };
 
 export default MapOl;

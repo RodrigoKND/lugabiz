@@ -12,9 +12,9 @@ import FieldsForm from "../components/FieldsForm"
 import Button from "../components/ui/Button"
 
 import "../styles/FormsStyles.css"
-function MessageAlertError({ message }) {
+export function MessageAlertError({ message, classNameContainer }) {
     return (
-        <div className="rounded-1 text-center" style={{ backgroundColor: "#FFE3E1" }}>
+        <div className={`rounded-1 text-center ${classNameContainer}`} style={{ backgroundColor: "#FFE3E1" }}>
             <p className="text-danger py-3">{message}</p>
         </div>
     );
@@ -46,7 +46,6 @@ function Login() {
         })
             .then((res) => res.json())
             .then((data) => {
-                console.log(data)   
                 if (data) {
                     sessionStorage.setItem("isLogged", true);
                     navigate("/");

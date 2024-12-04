@@ -105,3 +105,29 @@
     font-weight: bold;
     margin-bottom: 15px;
 }
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 300ms forwards;
+}
+
+.fade-out {
+    opacity: 1;
+    transform: translateY(0);
+    animation: fadeOut 300ms forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+}
