@@ -33,10 +33,6 @@ function Login() {
     });
 
     const handleSubmit = (values) => {
-        if(values.email === "admin@email.com" && values.password === "adminlugabiz2024"){
-            sessionStorage.setItem("isLogged", true);
-            navigate("/AdminPage");
-        }
         fetch("http://localhost:3000/api/v1/auth/user_register", {
             method: "POST",
             headers: {
